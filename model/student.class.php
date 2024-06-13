@@ -15,16 +15,16 @@ class Student{
     private $conexion=null;
     //geter y seter
 
-    public function __construct($dni, $surname, $name, $birthdate, $phone, $address, $email, $password, $school, ){
-        $this->dni=$dni;
-        $this->surname=$surname;
-        $this->name=$name;
-        $this->birthdate=$birthdate;
-        $this->phone=$phone;
-        $this->address=$address;
-        $this->email=$email;
-        $this->password=$password;
-        $this->school=$school;
+    //public function __construct($dni, $surname, $name, $birthdate, $phone, $address, $email, $password, $school, ){
+        //$this->dni=$dni;
+        //$this->surname=$surname;
+        //$this->name=$name;
+        //$this->birthdate=$birthdate;
+        //$this->phone=$phone;
+        //$this->address=$address;
+        //$this->email=$email;
+       // $this->password=$password;
+        //$this->school=$school;
     }
 
     public function addStudent(){
@@ -80,8 +80,18 @@ class Student{
          return false;
     }
 
-    public function getALLStudent(){
+    public function getAllStudent(){
+       $sql="SELECT*FROM students";
+       $this->conexion=new Database();
+       $result= $this->conexion->query($sql);
+       $allStudents=null;
+       if ($result){
+          while ($row=$result->fetch_asooc()){
+            $allStudent[]=$row;
+         }
+        }
         
+        return $allStudent;
     }
 
     public function getIdStudent(){

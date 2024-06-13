@@ -18,6 +18,7 @@ if($operacion=="add"){
     $student->addStudent();
 
 }else if($operacion=="update"){
+    $student->setIdStudent($_REQUEST["IdStudent"]);
     $student->setDni($_REQUEST["dni"]);
     $student->setSurname($_REQUEST["surname"]);
     $student->setName($_REQUEST["name"]);
