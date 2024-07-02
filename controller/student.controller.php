@@ -30,8 +30,8 @@ if($operation=="add"){
     $student->editStudent();
 
 }else if($operation=="delete"){
-    $student-> setDni($_REQUEST["dni"]);
-    $student-> deleteStudent();
-    
+    $student->setIdStudent($_REQUEST["id"]);
+    $result=$student->deleteStudent();  
+    echo $result;
 }
 ?>

@@ -34,7 +34,7 @@ class Student{
 
     $this->conexion=new Database();
     $result= $this->conexion->query($sql);
-    $this->conexion->close();
+    $this->conexion->closeDB();
     return $result;
     }
 
@@ -44,7 +44,7 @@ class Student{
     
         $this->conexion=new Database();
         $result= $this->conexion->query($sql);
-        $this->conexion->close();
+        $this->conexion->closeDB();
         return $result;
         }
 
@@ -53,7 +53,7 @@ class Student{
     
          $this->conexion=new Database();
          $result= $this->conexion->query($sql);
-         $this->conexion->close();
+         $this->conexion->closeDB();
     }
 
     public function getStudent(){
@@ -61,7 +61,7 @@ class Student{
     
          $this->conexion=new Database();
          $result= $this->conexion->query($sql);
-         $this->conexion->close();
+         $this->conexion->closeDB();
          if($result){
             if($row=$result->fetch_assoc()){
                 $this->dni=$row["dni"];

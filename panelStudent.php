@@ -37,7 +37,7 @@
               print "<td>". $data["birthdate"]."</td>";
               print "<td>". $data["phone"]."</td>";
               print "<td> <input type='button' name='editar' vlaue='Editar' onclick=\"'location.href('formEditStudent.php?idStudent=". $data["idStudent"]."');\"/>";
-              print "<input type='button' name='eliminar' vlaue='Eliminar' onclick=''/></td>";
+              print "<input type='button' name='eliminar' vlaue='Eliminar' onclick='askDeleteStudent(".$data["idStudent"].");'/></td>";
               print "</tr>" ;
               }
             } else(){
@@ -49,4 +49,5 @@
 </body>
 <script src="js/jquery.js"></script>
 <script src="js/alertify.js"></script>
+<scirpt src="js/funciones.js"></script>
 </html>
