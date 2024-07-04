@@ -24,6 +24,7 @@
         public function closeDB(){
             if ($this->conexion !==null){
               $this->close();
+              print "Conexion cerrada";
             }
         }
     }

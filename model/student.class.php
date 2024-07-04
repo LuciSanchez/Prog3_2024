@@ -29,9 +29,7 @@ class Student{
 
     public function addStudent(){
     //crear la consulta
-    $sql="INSERT INTO students (dni, surname, name, birthdate, phone, address, email, password, school) VALUES 
-    (".$this->dni.",'".$this->surname."', '".$this->name."', '".$this->birthdate."', '".$this->phone."', '".$this->address."', '".$this->email."', '".$this->password."', '".$this->school."',)";
-
+    $sql="INSERT INTO students (dni, surname, name, birthdate, phone, address, email, password, school) VALUES  (".$this->dni.",'".$this->surname."', '".$this->name."', '".$this->birthdate."', '".$this->phone."', '".$this->address."', '".$this->email."', '".$this->password."', '".$this->school."',)";
     $this->conexion=new Database();
     $result= $this->conexion->query($sql);
     $this->conexion->closeDB();

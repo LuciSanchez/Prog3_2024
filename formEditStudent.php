@@ -1,10 +1,12 @@
 <?php
-include("Model/student.class.php")
-$id=$_REQUEST["idStudent"];
-
+include("model/student.class.php")
 $student= new Student(); //Creamos el objeto!!
-$student->setStudent($id);
+$id=$_REQUEST["idStudent"];
+echo "valor del form, $id";
+if($_REQUEST["idStudent"]){
+$student->setIdStudent($_REQUEST["idStudent"]);
 $student->getStudent();
+}
 ?>
 
 <!DOCTYPE html>

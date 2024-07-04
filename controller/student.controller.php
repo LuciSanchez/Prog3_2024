@@ -2,9 +2,10 @@
 include("../model/student.class.php");
 $operation=$_REQUEST["operation"];
 
-$student=new Student();
+$student= new Student();
 
 if($operation=="add"){
+
     $student->setDni($_REQUEST["dni"]);
     $student->setSurname($_REQUEST["surname"]);
     $student->setName($_REQUEST["name"]);
@@ -29,9 +30,9 @@ if($operation=="add"){
     $student->setSchool($_REQUEST["school"]);
     $student->editStudent();
 
-}else if($operation=="delete"){
-    $student->setIdStudent($_REQUEST["id"]);
-    $result=$student->deleteStudent();  
-    echo $result;
+} else if($operation=="delete"){
+    $student->setidStudent($_REQUEST["id"]); 
+    $result=$student->deleteStudent();
+    echo $result; 
 }
 ?>
