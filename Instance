@@ -1,0 +1,116 @@
+<?php
+  include("database.class.php");
+
+  class Instances{
+    private $idcicle;
+    private $stdate=null;
+    private $findate=null;
+    private $year=null;
+    private $quarnumber=null;
+
+    public function addInstance(){
+        $sql="INSERT INTO Instances (idcicle, stdate, findate, year, quarnumber) VALUES  (".$this->idcicle.",'".$this->stdate."', '".$this->findate."', '".$this->year."', '".$this->quarnumber."')";
+        $this->conexion=new Database();
+        $result= $this->conexion->query($sql);
+        $this->conexion->closeDB();
+        return $result;
+    }
+
+    public function editInstance(){
+        $sql="UPDATE Instances SET idcicle=".$this->idcicle.", stdate'".$this->stdate."', findate='".$this->findate."', year='".$this->year."', quarenumber='".$this->quarenumber."' WHERE idcicle=".$this->idcicle;
+       
+    
+        $this->conexion=new Database();
+        $result= $this->conexion->query($sql);
+        $this->conexion->closeDB();
+        return $result;
+    }
+
+    public function deleteInstance(){
+        $sql="DELETE FROM Instances WHERE idcicle=".$this->idcicle;
+    
+        $this->conexion=new Database();
+        $result= $this->conexion->query($sql);
+        $this->conexion->closeDB();
+    }
+
+    public function listAllInstance(){
+
+    }
+
+    public function getInstance(){
+        $sql="SELECT * FROM Instances WHERE idcicle=".$this->idcicle;
+   
+        $this->conexion=new Database();
+        $result= $this->conexion->query($sql);
+        $this->conexion->closeDB();
+        if($result){
+           if($row=$result->fetch_assoc()){
+               $this->stdate=$row["stdate"];
+               $this->findate=$row["findate"];
+               $this->year=$row["year"];
+               $this->quarnumber=$row["quarnumber"];
+               return true;
+           }  
+        }
+        return false;
+   }
+
+   public function getAllInstance(){
+      $sql="SELECT*FROM Instances";
+      $this->conexion=new Database();
+      $result= $this->conexion->query($sql);
+      $allInstance=null;
+      if ($result){
+         while ($row=$result->fetch_asooc()){
+           $allInstance[]=$row;
+        }
+       }
+       
+       return $allInstance;
+   }
+
+   public function getIdCicle(){
+       return $this->idcicle;
+   }
+   public function setIdCicle (){
+       $this->idStudent=$idcicle;
+   }
+
+   public function getStdate(){
+       return $this->stdate;
+       
+   }
+
+   public function setStdate($stdate){
+       $this->stdate=$stdate;
+   }
+
+   public function getFindate(){
+       return $this->findate;
+       
+   }
+
+   public function setFindate($findate){
+       $this->findate=$findate;
+   }
+
+   public function getYear(){
+       return $this->year;
+       
+   }
+
+   public function setYear($year){
+       $this->year=$year;
+   }
+
+   public function getQuarnumber(){
+       return $this->quarnumber;
+       
+   }
+
+   public function setQuarnumber($quarnumber){
+       $this->quarnumber=$quarnumber;
+   }  
+  }
+?>
